@@ -51,6 +51,21 @@ section {
   margin-top: 60px;  
 }
 
+.characters h1 {
+  text-align: center;
+  color: var(--main-gold);
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+h1::after {
+  content: " ✨";
+  color: var(--main-gold);
+}
+h1::before {
+  content: "⚡ ";
+  color: var(--main-gold);
+}
 
 .navbar a:hover {
     color: var(--main-white);
@@ -118,3 +133,4 @@ section {
   justify-content: center;
   align-items: center; 
 }
+
