@@ -1,0 +1,147 @@
+:root {
+    --main-bg: #0a0a23;
+    --main-gold: #ffd700;
+    --main-white: #f5f5f5;
+    --shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+body{
+    margin: 0;
+    font-family: "Libre Caslon Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    background: var(--main-bg);
+    color: var(--main-white);
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+.navbar ul{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0;
+    list-style: none;
+}
+
+.navbar a{
+    color: var(--main-gold);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+section{
+    padding: 50px 15px;
+    text-align: center;
+}
+
+h1{
+    color: var(--main-gold);
+    text-align: center;
+}
+
+h2{
+    color: var(--main-gold);
+}
+
+.navbar a:hover {
+    color: var(--main-white);
+}
+
+.characters{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;              
+  padding: 20px;          
+  width: 90%;            
+  box-sizing: border-box; 
+  justify-items: center;
+}
+
+
+.card {
+  width: 260px;        
+  height: 300px;      
+  perspective: 1000px;
+  border: 2px solid var(--main-gold);
+  border-radius: 10px;
+  box-shadow: 0 0 6px var(--main-gold);
+  overflow: hidden;
+}
+
+.card-inner {
+  width: 260px;        
+  height: 300px;     
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  padding: 10px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 260px;        
+  height: 300px;     
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front img {
+  width: 260px;        
+  height: 300px;
+  border-radius: 12px;
+}
+
+.card-front img:hover {
+  filter: brightness(1.3);
+  transition: filter 0.3s ease;
+}
+
+.card-back {
+  width: 260px;        
+  height: 300px;     
+  background: #1a103d;
+  color: gold;
+  transform: rotateY(180deg);
+  font-size: 1rem;
+  padding: 20px;
+  text-align: center;   
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+h1::after {
+    content: "✨";
+    color: var(--main-gold);
+}
+h2::after {
+    content: "✨";
+    color: var(--main-gold);
+}
+p::first-letter {
+    font-size: 1.5em;
+    color: var(--main-gold);
+}
+
+footer{
+    text-align: center;
+}
