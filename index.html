@@ -8,20 +8,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="icon" type="png" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/HP_-_Harry_Potter_wordmark.svg">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="houses.html">Houses</a></li>
                 <li><a href="characters.html">Characters</a></li>
                 <li><a href="spells.html">Spells</a></li>
+                <li><a href="patronuses.html">Patronuses</a></li>
+                <li><a href="film.html">Films</a></li>
+                <li><a href="novel.html">Novels</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
+    <div id="welcome-popup" class="popup">
+        <button class="popup-close" aria-label="close">&times;</button>
+        <h3>Welcome, Potterhead!</h3>
+        <p>Explore houses, characters and spells. Mischief Managed ✨</p>
+    </div>
 
     <section class="home">
         <h1 class="title">Welcome to Hogwarts </h1>
@@ -43,6 +55,16 @@
     <footer>
         <p>&copy; Lumina team </p>
     </footer>
-</body>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('welcome-popup');
+            if (popup) {
+                setTimeout(()=> popup.classList.add('show'), 800);
+                popup.querySelector('.popup-close')?.addEventListener('click', () => popup.classList.remove('show'));
+            }
+        });
+    </script>
+</body>
 </html>
+
