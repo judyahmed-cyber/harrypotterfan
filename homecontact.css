@@ -181,7 +181,7 @@ button:hover {
 }
 
 .card {
-    display: none; /* بيختفي في الأول */
+    display: none;
     margin-top: 20px;
     padding: 15px;
     border-radius: 10px;
@@ -272,6 +272,7 @@ footer{
 }
 .popup.show{ transform: translateY(0) scale(1); opacity:1; pointer-events:auto; }
 .popup .popup-close{ position:absolute; left:8px; top:6px; background:transparent; border:0; color:var(--main-white); font-size:20px; cursor:pointer; }
+
 
 
 
