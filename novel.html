@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter</title>
+    <link rel="stylesheet" href="novel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+    <link rel="icon" type="png" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/HP_-_Harry_Potter_wordmark.svg">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="houses.html">Houses</a></li>
+                <li><a href="characters.html">Characters</a></li>
+                <li><a href="spells.html">Spells</a></li>
+                <li><a href="patronuses.html">Patronuses</a></li>
+                <li><a href="film.html">Films</a></li>
+                <li><a href="novel.html">Novels</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <section>
+    <h1>Harry Potter novels Encyclopedia</h1>
+    <input type="text" id="search" placeholder="Search for a novel...">
+    <div class="movie-list" id="movieList"></div>
+  </section>
+
+  <div class="popup" id="popup">
+    <div class="popup-content" id="popupContent">
+      <button class="close-btn" onclick="closePopup()">X</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>⚡ Made with magic by lumina team ⚡</p>
+  </footer>
+
+<script>
+  const movies = [
+    {
+      title: "Harry Potter and the Philosopher's Stone",
+      year: 1997,
+      description: "Harry discovers he is a wizard and begins his first year at Hogwarts.",
+      img: "https://m.media-amazon.com/images/I/81YOuOGFCJL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      title: "Harry Potter and the Chamber of Secrets",
+      year: 1998,
+      description: "The Chamber of Secrets is opened, and students are in danger.",
+      img: "https://m.media-amazon.com/images/I/91OINeHnJGL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      title: "Harry Potter and the Prisoner of Azkaban",
+      year: 1999,
+      description: "Harry learns the truth about Sirius Black and his family.",
+      img: "https://th.bing.com/th/id/R.c3a4a5fbc10abc83f3629e52b07dc7e8?rik=UwoDPv8qoSn1lQ&riu=http%3a%2f%2fwww.harrypotterfanzone.com%2fwp-content%2f2009%2f06%2fpoa-us-jacket-art.jpg&ehk=hx%2fmt4ZVnCGK6yE9Vj1ArxWdBzZF3NS3QNLr0RXNn6c%3d&risl=&pid=ImgRaw&r=0"
+    },
+    {
+      title: "Harry Potter and the Goblet of Fire",
+      year: 2000,
+      description: "Harry competes in the dangerous Triwizard Tournament.",
+      img: "https://m.media-amazon.com/images/I/81zeKRGCPpL._SL1500_.jpg"
+    },
+    {
+      title: "Harry Potter and the Order of the Phoenix",
+      year: 2003,
+      description: "Harry forms Dumbledore's Army to fight against Umbridge.",
+      img: "https://m.media-amazon.com/images/I/81BXnTqH7-L._SL1500_.jpg"
+    },
+    {
+      title: "Harry Potter and the Half-Blood Prince",
+      year: 2005,
+      description: "Harry discovers Voldemort's past and the Horcruxes.",
+      img: "https://m.media-amazon.com/images/I/91g0m3EGvpL._SL1500_.jpg"
+    },
+    {
+      title: "Harry Potter and the Deathly Hallows",
+      year: 2007,
+      description: "Harry, Ron, and Hermione go on a quest to find and destroy Horcruxes.",
+      img: "https://media.harrypotterfanzone.com/deathly-hallows-us-childrens-edition.jpg"
+    },
+  ];
+
+  const movieList = document.getElementById("movieList");
+  const popup = document.getElementById("popup");
+  const popupContent = document.getElementById("popupContent");
+  const search = document.getElementById("search");
+
+  function displayMovies(list) {
+    movieList.innerHTML = "";
+    list.forEach((movie, index) => {
+      const card = document.createElement("div");
+      card.className = "movie-card";
+      card.setAttribute("data-index", index); 
+      card.innerHTML = `
+        <img src="${movie.img}" alt="${movie.title}">
+        <h3>${movie.title}</h3>`;
+      movieList.appendChild(card);
+    });
+  }
+
+  movieList.addEventListener("click", (e) => {
+    const card = e.target.closest(".movie-card");
+    if (card) {
+      const index = card.getAttribute("data-index");
+      showDetails(movies[index]);
+    }
+  });
+
+  function showDetails(movie) {
+    popupContent.innerHTML = `
+      <button class="close-btn" onclick="closePopup()">X</button>
+      <h2>${movie.title} (${movie.year})</h2>
+      <img src="${movie.img}" alt="${movie.title}">
+      <p>${movie.description}</p>
+    `;
+    popup.style.display = "flex";
+  }
+
+  function closePopup() {
+    popup.style.display = "none";
+  }
+
+  search.addEventListener("input", e => {
+    const value = e.target.value.toLowerCase();
+    const filtered = movies.filter(movie =>
+      movie.title.toLowerCase().includes(value)
+    );
+    displayMovies(filtered);
+  });
+
+  displayMovies(movies);
+</script>
+
+</body>
+</html>
