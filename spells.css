@@ -5,6 +5,69 @@
     --shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 
+@media (max-width: 768px) {
+
+    .navbar ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .Hogwartsimg {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img {
+        width: 90%;
+        height: auto;
+        padding-left: 0;
+    }
+
+    video {
+        width: 90%;
+        margin: 10px auto;
+        display: block;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    table {
+        width: 95%;
+        margin: auto;
+        font-size: 14px;
+    }
+
+    .characters .grid,
+    .sounds .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .characters .grid,
+    .sounds .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .Hogwartsimg {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    table {
+        width: 90%;
+        margin: auto;
+    }
+}
+
 body{
     margin: 0;
     font-family: "Libre Caslon Display", serif;
