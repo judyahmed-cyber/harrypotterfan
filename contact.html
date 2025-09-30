@@ -14,10 +14,13 @@
     <header>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="houses.html">Houses</a></li>
                 <li><a href="characters.html">Characters</a></li>
                 <li><a href="spells.html">Spells</a></li>
+                <li><a href="patronuses.html">Patronuses</a></li>
+                <li><a href="film.html">Films</a></li>
+                <li><a href="novel.html">Novels</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -25,12 +28,16 @@
 
     <section id="contact" class="contact">
         <h1>Send us an Owl 🦉</h1>
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your E-mail">
-            <textarea placeholder="Your Message"></textarea>
+        <form id="messageForm">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your E-mail" required>
+            <textarea placeholder="Your Message" id="messageInput" required></textarea>
             <button type="submit">Send</button>
         </form>
+        <div class="card" id="messageCard">
+            <h3>Your Message</h3>
+            <p id="messageText"></p>
+        </div>
     </section>
 
     <br>
@@ -69,7 +76,25 @@
     <footer>
         <p>&copy; Lumina team </p>
     </footer>
-</body>
 
+    <script>
+        const messageInput = document.getElementById("messageInput");
+        const messageCard = document.getElementById("messageCard");
+        const messageText = document.getElementById("messageText");
+        const form = document.getElementById("messageForm");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const message = messageInput.value.trim();
+
+            if (message) {
+                messageText.textContent = message; 
+                messageCard.style.display = "block";
+                messageInput.value = "";
+            }
+        });
+    </script>
+</body>
 </html>
+
 
